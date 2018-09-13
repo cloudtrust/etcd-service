@@ -2,9 +2,10 @@ FROM cloudtrust-baseimage:f27
 
 ARG service_git_tag
 
+ARG etcd_version=3.2.16-2.fc27
 
 RUN dnf update -y && \
-    dnf install -y etcd && \
+    dnf install -y etcd-$etcd_version && \
     dnf clean all
 
 WORKDIR /cloudtrust
